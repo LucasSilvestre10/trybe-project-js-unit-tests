@@ -10,9 +10,27 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
+const checkList = (array) => {  
+    for (let index = 0; index < array.length; index += 1) {
+      if (typeof array[index] !== 'number') {
+        return false;
+      }
+    }
+    return true;  
+};
 
-const average = () => {
-  // adicione seu código aqui
+const average = (array) => {
+  let soma = 0;
+  if (array.length === 0) {
+    return undefined;
+  }
+  if (checkList(array) === true) {
+    for (let index = 0; index < array.length; index += 1) {
+      soma += array[index];
+    }
+    return Math.round(soma / array.length);
+  }
+  return undefined;
 };
 
 module.exports = average;
